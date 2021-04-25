@@ -4,16 +4,53 @@ $( document ).ready(function() {
 });
 
 
-var response;
+(function( $ ){
+   $.fn.clear_action = function() {
+      $('#home').removeClass('active')
+      $('#clients').removeClass('active')
+      $('#tasks').removeClass('active')
+      $('#analytics').removeClass('active')
+      return this;
+   };
+})( jQuery );
 
 
-$('.btn').on('click',
+$('#home').on('click',
     (e)=>{
-    $('.test').html('qqwwwwwwwww')
-    $( ".test" ).load( "/page/1" );
+    $("#main").load( "/page/home" );
+    console.log( "home!" );
+    $("#home").clear_action()
+    $("#home").addClass("active")
     }
     )
 
+$('#clients').on('click',
+    (e)=>{
+    $("#main").load( "/page/clients" );
+    console.log( "clients!" );
+    $("#clients").clear_action()
+    $("#clients").addClass("active")
+    }
+    )
+
+$('#tasks').on('tasks',
+    (e)=>{
+    $("#main").load( "/page/tasks" );
+    console.log( "tasks!" );
+    $("#tasks").clear_action()
+    $("#tasks").addClass("active")
+    }
+    )
+
+
+$('#analytics').on('click',
+    (e)=>{
+    $("#main").load( "/page/analytics" );
+    console.log( "analytics!" );
+    $("#analytics").clear_action()
+    $("#analytics").addClass("active")
+    }
+    )
 
 //$('.btn').on('click',
 //    (e)=>{

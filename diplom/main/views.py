@@ -13,5 +13,5 @@ def render_test(request):
     return render(request, 'index.html')
 
 
-def first_page(request):
-    return render(request, 'pages/workplace.html')
+def home(request):
+    return render(request, 'pages/home.html')
