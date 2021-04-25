@@ -27,12 +27,6 @@ import json
 
 @method_decorator(csrf_exempt, name='dispatch')
 class LoginFormView(View):
-    content = {}
-    template_name = 'helpers/login.html'
-
-    def get(self, request):
-        return render(request, self.template_name, self.content)
-
     def post(self, request):
         user = authenticate(request, **request.POST.dict())
         print(user)
@@ -63,7 +57,7 @@ class RegisterFormView(View):
         if form.is_valid():
             user = User.objects.create_user(**form.cleaned_data)
             user.save()
-        return HttpResponseRedirect('/login')
+        return HttpResponseRedirect('/')
 
 
 # --------------------------------INDEX--------------------------------
@@ -87,8 +81,10 @@ class DragAndDrop(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Workplace(View):
+    context={}
     def get(self, request):
-        return render(request, 'workplace.html')
+        self.context['username']=request.user.username
+        return render(request, 'workplace.html',context=self.context)
 
 
 @method_decorator(csrf_exempt, name='dispatch')

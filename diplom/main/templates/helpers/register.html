@@ -1,130 +1,18 @@
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>Document</title>-->
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--<form class="form-signin" method="post">-->
-<!--    <div class="text-center mb-4">-->
-<!--        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
-<!--             height="72">-->
-<!--        <h1 class="h3 mb-3 font-weight-normal">Register form</h1>-->
-<!--    </div>-->
-
-<!--    <div class="form-label-group">-->
-<!--        <label>account name</label>-->
-<!--        {{form.username}}-->
-<!--    </div>-->
-
-<!--    <div class="form-label-group">-->
-<!--        <label>Email address</label>-->
-<!--        {{form.email}}-->
-<!--    </div>-->
-
-<!--    <div class="form-label-group">-->
-<!--        <label>Password</label>-->
-<!--        {{form.password}}-->
-<!--    </div>-->
-<!--    <div class="checkbox mb-3"></div>-->
-<!--    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>-->
-<!--    <p class="mt-5 mb-3 text-muted text-center">© 2020-2021</p>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
-
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-              html,
-        body {
-          height: 100%;
-        }
-
-        body {
-          display: flex;
-          align-items: center;
-          padding-top: 40px;
-          padding-bottom: 40px;
-          background-color: #f5f5f5;
-        }
-
-        .form-signin {
-          width: 100%;
-          max-width: 330px;
-          padding: 15px;
-          margin: auto;
-        }
-
-        .form-signin .checkbox {
-          font-weight: 400;
-        }
-
-        .form-signin .form-floating:focus-within {
-          z-index: 2;
-        }
-
-        .form-signin input[type="email"] {
-          margin-bottom: -1px;
-          border-bottom-right-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-
-        .form-signin input[type="password"] {
-          margin-bottom: 10px;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
-        }
-
-    </style>
-</head>
-<body>
-<form class="form-signin" method="post" action="/register">
-    <div class="text-center mb-4">
-        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
-             height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Rgister form</h1>
-    </div>
-
-    <div class="form-label-group">
+<form class="p-5 border rounded-3 bg-light" method="post" action="/register">
+    <h1 class="h3 mb-3 font-weight-normal text-dark">Login form</h1>
+    <div class="form-floating mb-3">
         {{form.username}}
+        <label class="text-dark">Account name</label>
     </div>
-
-    <div class="form-label-group">
-       {{form.email}}
+    <div class="form-floating mb-3">
+        {{form.email}}
+        <label class="text-dark">Password</label>
     </div>
-    <div class="form-label-group">
+    <div class="form-floating mb-3">
         {{form.password}}
+        <label class="text-dark">Password</label>
     </div>
-
-    <div class="checkbox mb-3"></div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register me!</button>
-    <p class="mt-5 mb-3 text-muted text-center">© 2020-2021</p>
+    <hr class="my-4">
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+    <small class="text-muted ">By clicking Sign up, you agree to the terms of use.</small>
 </form>
-</body>
-</html>
