@@ -92,35 +92,36 @@ class Workplace(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class HomePage(View):
-
     def get(self, request):
         render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class DealsPage(View):
-
     def get(self, request):
         render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class TasksPage(View):
-
     def get(self, request):
         render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ClienstsPage(View):
-
     def get(self, request):
         render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class AnalyticsPage(View):
+    def get(self, request):
+        render(request, 'pages/home.html')
 
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SettingsPage(View):
     def get(self, request):
         render(request, 'pages/home.html')
 
