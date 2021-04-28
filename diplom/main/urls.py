@@ -15,5 +15,6 @@ urlpatterns = [
     path('page/clients', ClienstsPage.as_view()),
     path('page/analytics', AnalyticsPage.as_view()),
     path('page/settings', SettingsPage.as_view()),
+    path('add/<str:page>', Add_Elem.as_view())
 
 ]

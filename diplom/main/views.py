@@ -93,36 +93,57 @@ class Workplace(View):
 @method_decorator(csrf_exempt, name='dispatch')
 class HomePage(View):
     def get(self, request):
-        render(request, 'pages/home.html')
+        return render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class DealsPage(View):
     def get(self, request):
-        render(request, 'pages/home.html')
+        return render(request, 'pages/deals.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class TasksPage(View):
     def get(self, request):
-        render(request, 'pages/home.html')
+        return render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ClienstsPage(View):
     def get(self, request):
-        render(request, 'pages/home.html')
+        return render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class AnalyticsPage(View):
     def get(self, request):
-        render(request, 'pages/home.html')
+        return render(request, 'pages/home.html')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class SettingsPage(View):
     def get(self, request):
-        render(request, 'pages/home.html')
+        return render(request, 'pages/home.html')
 
-# --------------------------------SOME--------------------------------
+
+# --------------------------------ADDINGS-----------------------------
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Add_Elem(View):
+    content = {}
+
+    def post(self, request):
+        print(json.loads(request.body))
+        # print(request.body)
+        return HttpResponseRedirect('/index')
+
+    def get(self, request, page):
+        if page == 'deals':
+            self.content['form'] = []
+            return render(request, 'add/deal.html')
+        elif page == 'tasks':
+            self.content['form'] = []
+            return render(request, 'add/task.html')
+        elif page == 'clients':
+            self.content['form'] = []
+            return render(request, 'add/client.html')
