@@ -35,7 +35,7 @@ class LoginFormView(View):
 
             return HttpResponseRedirect('/workplace')
         else:
-            return HttpResponseRedirect('/register')
+            return HttpResponseRedirect('/')
 
 
 class LogoutView(View):
@@ -65,8 +65,10 @@ class RegisterFormView(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Index(View):
+    context = {}
+
     def get(self, request):
-        return render(request, 'index.html')
+        return render(request, 'index.html', context=self.context)
 
 
 # --------------------------------PAGES--------------------------------
@@ -81,10 +83,11 @@ class DragAndDrop(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Workplace(View):
-    context={}
+    context = {}
+
     def get(self, request):
-        self.context['username']=request.user.username
-        return render(request, 'workplace.html',context=self.context)
+        self.context['username'] = request.user.username
+        return render(request, 'workplace.html', context=self.context)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
