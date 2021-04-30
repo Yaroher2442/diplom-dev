@@ -17,7 +17,6 @@ function init() {
                         type: "POST",
                         url: "/DragDrop",
                         data: JSON.stringify(item),
-
                         contentType: 'application/json'
                         });
                  }

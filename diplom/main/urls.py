@@ -10,7 +10,7 @@ urlpatterns = [
     path('workplace', Workplace.as_view()),
     path('DragDrop', DragAndDrop.as_view()),
     path('page/home', HomePage.as_view()),
-    path('page/deals', DealsPage.as_view()),
+    path('page/cases', CasesPage.as_view()),
     path('page/tasks', TasksPage.as_view()),
     path('page/clients', ClienstsPage.as_view()),
     path('page/analytics', AnalyticsPage.as_view()),

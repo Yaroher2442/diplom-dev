@@ -7,7 +7,7 @@ $( document ).ready(function() {
 (function( $ ){
    $.fn.clear_action = function() {
       $('#home').removeClass('active')
-      $('#deals').removeClass('active')
+      $('#cases').removeClass('active')
       $('#clients').removeClass('active')
       $('#tasks').removeClass('active')
       $('#analytics').removeClass('active')
@@ -26,12 +26,12 @@ $('#home').on('click',
     }
     )
 
-$('#deals').on('click',
+$('#cases').on('click',
     (e)=>{
-    console.log( "deals!" );
-    $("#main").load( "/page/deals" );
-    $("#deals").clear_action()
-    $("#deals").addClass("active")
+    console.log( "cases!" );
+    $("#main").load( "/page/cases" );
+    $("#cases").clear_action()
+    $("#cases").addClass("active")
     }
     )
 

@@ -19,6 +19,8 @@ from django.views import View
 from .forms import Register
 
 # our models
+
+# other libs
 from pprint import pprint
 import json
 
@@ -71,14 +73,7 @@ class Index(View):
         return render(request, 'index.html', context=self.context)
 
 
-# --------------------------------PAGES--------------------------------
-
-@method_decorator(csrf_exempt, name='dispatch')
-class DragAndDrop(View):
-    def post(self, request):
-        print(json.loads(request.body))
-        # print(request.body)
-        return HttpResponseRedirect('/index')
+# --------------------------------WORKPLACE--------------------------------
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -90,43 +85,52 @@ class Workplace(View):
         return render(request, 'workplace.html', context=self.context)
 
 
+# --------------------------------HOME_DRAG--------------------------------
+
+@method_decorator(csrf_exempt, name='dispatch')
+class DragAndDrop(View):
+    def post(self, request):
+        print(json.loads(request.body))
+        # print(request.body)
+        return HttpResponseRedirect('/workplace')
+
+
 @method_decorator(csrf_exempt, name='dispatch')
 class HomePage(View):
     def get(self, request):
         return render(request, 'pages/home.html')
 
 
+# --------------------------------OTHER_PAGE--------------------------------
+
 @method_decorator(csrf_exempt, name='dispatch')
-class DealsPage(View):
+class CasesPage(View):
+    context = {}
+
     def get(self, request):
-        return render(request, 'pages/deals.html')
+        self.context['form'] = []
+        return render(request, 'pages/cases.html', context=self.context)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class TasksPage(View):
+    context = {}
+
     def get(self, request):
-        return render(request, 'pages/home.html')
+        self.context['form'] = []
+        return render(request, 'pages/tasks.html', context=self.context)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ClienstsPage(View):
+    context = {}
+
     def get(self, request):
-        return render(request, 'pages/home.html')
+        self.context['form'] = []
+        return render(request, 'pages/clients.html', context=self.context)
 
 
-@method_decorator(csrf_exempt, name='dispatch')
-class AnalyticsPage(View):
-    def get(self, request):
-        return render(request, 'pages/home.html')
-
-
-@method_decorator(csrf_exempt, name='dispatch')
-class SettingsPage(View):
-    def get(self, request):
-        return render(request, 'pages/home.html')
-
-
-# --------------------------------ADDINGS-----------------------------
+# --------------------------------ADDING_EDITING_ON_PAGES-----------------------------
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Add_Elem(View):
@@ -147,3 +151,17 @@ class Add_Elem(View):
         elif page == 'clients':
             self.content['form'] = []
             return render(request, 'add/client.html')
+
+
+# --------------------------------ANAL_SETTINGS-----------------------------
+
+@method_decorator(csrf_exempt, name='dispatch')
+class AnalyticsPage(View):
+    def get(self, request):
+        return render(request, 'pages/analytics.html')
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SettingsPage(View):
+    def get(self, request):
+        return render(request, 'pages/settings.html')
