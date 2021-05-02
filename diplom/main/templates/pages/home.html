@@ -28,14 +28,14 @@
             {% for val in values %}
             <div id="dv2-{{val.id}}" class="d-flex flex-column draggable-item">
                 <div id="dv3-{{val.id}}" class="list-group">
-                    <a id="a1-{{val.id}}" href="#" class="list-group-item list-group-item-action" aria-current="true">
+                    <div id="a1-{{val.id}}" href="#" class="list-group-item list-group-item-action" aria-current="true">
                         <div id="dv4-{{val.id}}" class="d-flex w-100 justify-content-between">
                             <h6 id="h1-{{val.id}}" class="mb-1">{{val.name}}</h6>
                             <small id="s1-{{val.id}}">{{val.change_time}}</small>
                         </div>
                         <h7 id="h2-{{val.id}}" class="mb-1">Owner: {{val.executor}}</h7>
                         <p id="p1-{{val.id}}" class="mb-1">{{val.descr}}</p>
-                    </a>
+                    </div>
                 </div>
             </div>
             {% endfor %}

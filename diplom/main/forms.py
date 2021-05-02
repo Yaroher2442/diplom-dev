@@ -24,9 +24,6 @@ class Register(forms.Form):
 
 
 class CasesAdd(forms.Form):
-    OPTIONS_CLIENTS = tuple([(item.id, item.name) for item in Clients.objects.all()])
-    OPTIONS_OWNRES = tuple([(item.id, item.username) for item in get_user_model().objects.all()])
-    # client = models.ForeignKey(Clients, on_delete=models.DO_NOTHING)
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
                            required=True)
     client = MyModelChoiceField(queryset=Clients.objects.all(),

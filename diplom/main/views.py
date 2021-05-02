@@ -131,6 +131,7 @@ class CasesPage(View):
 
     def get(self, request):
         self.context['form'] = CasesAdd()
+        self.context['data'] = Cases.objects.all()
         return render(request, 'pages/cases.html', context=self.context)
 
 
@@ -140,6 +141,7 @@ class TasksPage(View):
 
     def get(self, request):
         self.context['form'] = TaskAdd()
+        self.context['data'] = Tasks.objects.all()
         return render(request, 'pages/tasks.html', context=self.context)
 
 
@@ -149,6 +151,7 @@ class ClienstsPage(View):
 
     def get(self, request):
         self.context['form'] = ClientAdd()
+        self.context['data'] = Clients.objects.all()
         return render(request, 'pages/clients.html', context=self.context)
 
 
