@@ -18,10 +18,14 @@
         </svg>
     </button>
 </div>
+
+
 <div class="d-flex flex-row" style="height: 100%;">
+    {% for key, values in data.items %}
     <div id="container-1" class="container border overflow-auto">
-        <div class="text-center p-2 ">First</div>
-        <div id="dv1-1" class="connected-sortable droppable-area1" style="min-height: 100%;">
+        <div class="text-center p-2 ">{{key.name}}</div>
+        <div id="dv1-1" class="connected-sortable droppable-area{{key.id}}" style="min-height: 100%;">
+            {% for val in values %}
             <div id="dv2-1" class="d-flex flex-column draggable-item">
                 <div id="dv3-1" class="list-group">
                     <a id="a1-1" href="#" class="list-group-item list-group-item-action" aria-current="true">
@@ -33,25 +37,12 @@
                     </a>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    <div id="container-2" class="container border overflow-auto">
-        <div class="text-center p-2 ">First</div>
-        <div id="dv1-2" class="connected-sortable droppable-area1" style="min-height: 100%;">
-            <div id="dv2-2" class="d-flex flex-column draggable-item">
-                <div id="dv3-2" class="list-group">
-                    <a id="a1-2" href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div id="dv4-2" class="d-flex w-100 justify-content-between">
-                            <h6 id="h1-2" class="mb-1">List group item heading</h6>
-                            <small id="s1-2">3 days ago</small>
-                        </div>
-                        <p id="p1-2" class="mb-1">Some placeholder content in a paragraph.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -59,7 +50,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">ADD CASE FORM</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">ADD FUNNEL FORM</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -81,7 +72,7 @@
 </div>
 
 <script>
-    $("#exampleModalCenter").on("hidden.bs.modal", function (){
+$("#exampleModalCenter").on("hidden.bs.modal", function (){
             var $form = $("#form_add_funel");
             console.log($form.serialize())
             $.post(
@@ -92,5 +83,37 @@
             console.log('loaded')
             return false;
         })
+
+        $( init );
+
+
+$( init );
+function init() {
+  $( "{{drop_js_string}}" ).sortable({
+      connectWith: ".connected-sortable",
+      scroll: true,
+      stop : function(event, ui) {
+        var new_elem=document.elementFromPoint(event.originalEvent.clientX,event.originalEvent.clientY);
+            $("div").each(function(i,elem){
+            if ($(this).hasClass("overflow-auto")){
+                 if ($.contains(elem,new_elem)){
+                     console.log(new_elem);
+                     console.log(new_elem.id);
+                     item = {}
+                     item ["container"] = elem.id;
+                     item ["elem"] = new_elem.id;
+                     $.ajax({
+                        type: "POST",
+                        url: "/DragDrop",
+                        data: JSON.stringify(item),
+                        contentType: 'application/json'
+                        });
+                 }
+            }
+        })
+      },
+    }).disableSelection();
+}
+
 
 </script>

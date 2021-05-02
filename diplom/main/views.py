@@ -20,10 +20,12 @@ from .forms import Register, CasesAdd, ClientAdd, TaskAdd, FunnelAdd
 
 # our models
 from .models import Cases, Clients, Tasks, Funnels
+from django.contrib.auth import get_user_model
 # other libs
 from pprint import pprint
 import json
 from datetime import datetime
+from django.utils import timezone
 
 
 # --------------------------------AUTH--------------------------------
@@ -84,6 +86,7 @@ class Workplace(View):
     def get(self, request):
         from django.contrib.auth import get_user_model
         self.context['username'] = request.user.username
+        self.context['form'] = FunnelAdd()
         return render(request, 'workplace.html', context=self.context)
 
 
@@ -103,6 +106,13 @@ class HomePage(View):
 
     def get(self, request):
         self.context['form'] = FunnelAdd()
+        funs_cases = {}
+        for funn in Funnels.objects.all():
+            if funn.name not in funs_cases.keys():
+                funs_cases[funn] = Cases.objects.filter(funnel=funn.id).order_by('f_position')
+        print(funs_cases)
+        self.context['drop_js_string']=','.join([".droppable-area"+str(i.id) for i in funs_cases.keys()])
+        self.context['data'] = funs_cases
         return render(request, 'pages/home.html', context=self.context)
 
 
@@ -135,7 +145,7 @@ class ClienstsPage(View):
         return render(request, 'pages/clients.html', context=self.context)
 
 
-# --------------------------------ADDING_EDITING_ON_PAGES-----------------------------
+# --------------------------------ADDING_EDITING_DELITE_ON_PAGES-----------------------------
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Add_Elem(View):
@@ -146,26 +156,50 @@ class Add_Elem(View):
             form = CasesAdd(request.POST)
             if form.is_valid():
                 print(form.cleaned_data)
+                for funn in Cases.objects.filter(funnel=Funnels.objects.get(id=1)):
+                    funn.f_position += 1
+                    funn.save()
+                print('qqqq')
+                new_case = Cases(f_position=0,
+                                 funnel_id=Funnels.objects.get(id=1).id,
+                                 name=form.cleaned_data['name'],
+                                 descr=form.cleaned_data['descr'],
+                                 client=Clients.objects.get(id=int(form.cleaned_data['client'])),
+                                 executor=get_user_model().objects.get(id=int(form.cleaned_data['executor'])),
+                                 stage=Funnels.objects.get(id=1).name,
+                                 owner=request.user.username,
+                                 create_time=timezone.now(),
+                                 change_time=timezone.now())
+                print(Cases.__dict__)
+                new_case.save()
         elif page == 'task':
-            form = CasesAdd(request.POST)
+            form = TaskAdd(request.POST)
             if form.is_valid():
                 print(form.cleaned_data)
+                new_task = Tasks(name=form.cleaned_data['name'],
+                                 case=Cases.objects.get(id=int(form.cleaned_data['case'])),
+                                 descr=form.cleaned_data['descr'],
+                                 create_time=timezone.now(),
+                                 change_time=timezone.now(),
+                                 status=form.cleaned_data['status']
+                                 )
+                new_task.save()
         elif page == 'client':
             form = ClientAdd(request.POST)
             if form.is_valid():
                 print(form.cleaned_data)
                 funnel = Funnels.objects.all()[0]
                 new_client = Clients(**form.cleaned_data, funnel=funnel,
-                                     create_time=datetime.now(),
-                                     change_time=datetime.now())
+                                     create_time=timezone.now(),
+                                     change_time=timezone.now())
                 new_client.save()
         elif page == 'funnel':
             form = FunnelAdd(request.POST)
             if form.is_valid():
                 print(form.cleaned_data)
-                funnel = Funnels.objects.all()[0]
                 new_funnel = Funnels(**form.cleaned_data)
                 new_funnel.save()
+                # new_funnel.save()
         return HttpResponseRedirect('/workplace')
 
 
