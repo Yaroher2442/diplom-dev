@@ -8,8 +8,15 @@
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
             </svg>
         </button>
+
     </div>
     <div class="flex-grow-1 text-center">Flex item 1</div>
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+             class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"></path>
+        </svg>
+    </button>
 </div>
 <div class="d-flex flex-row" style="height: 100%;">
     <div id="container-1" class="container border overflow-auto">
@@ -46,5 +53,44 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">ADD CASE FORM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="form_add_funel" method="POST" class="needs-validation" action="/add/funnel">
+                <div class="modal-body">
+                    <label>Chose Funnel name</label>
+                    {{form.name}}
+                    <label>Add some descriptions</label>
+                    {{form.descr}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<script>
+    $("#exampleModalCenter").on("hidden.bs.modal", function (){
+            var $form = $("#form_add_funel");
+            console.log($form.serialize())
+            $.post(
+                    $form.attr('action'),
+                    $form.serialize()
+                );
+            $("#main").load( "/page/home" );
+            console.log('loaded')
+            return false;
+        })
 
+</script>

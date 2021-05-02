@@ -85,24 +85,41 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">ADD CASE FORM</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <input>qqqqqqqqqqqqqqqqqqqqqqqqqq
-            </div>
-            <div class="modal-body">
-                <input>qqqqqqqqqqqqqqqqqqqqqqqqqq
-            </div>
-            <div class="modal-body">
-                <input>qqqqqqqqqqqqqqqqqqqqqqqqqq
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form id="form_add_case" method="POST" class="needs-validation" action="/add/case">
+                <div class="modal-body">
+                    <label>Name to case</label>
+                    {{form.name}}
+                    <label>Chose cell client</label>
+                    {{form.client}}
+                    <label>Chose exeсutor</label>
+                    {{form.executor}}
+                    <label>Add some words about</label>
+                    {{form.descr}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    $("#exampleModalCenter").on("hidden.bs.modal", function (){
+            var $form = $("#form_add_case");
+            console.log($form.serialize())
+            $.post(
+                    $form.attr('action'),
+                    $form.serialize()
+                );
+            $("#main").load( "/page/cases" );
+            console.log('loaded')
+            return false;
+        })
+</script>

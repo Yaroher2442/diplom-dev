@@ -85,24 +85,39 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">ADD CASE FORM</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <input>qqqqqqqqqqqqqqqqqqqqqqqqqq
-            </div>
-            <div class="modal-body">
-                <input>qqqqqqqqqqqqqqqqqqqqqqqqqq
-            </div>
-            <div class="modal-body">
-                <input>qqqqqqqqqqqqqqqqqqqqqqqqqq
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-            </div>
+            <form id="form_add_task" method="POST" class="needs-validation" action="/add/task">
+                <div class="modal-body">
+                    <label>Chose case name</label>
+                    {{form.case}}
+                    <label>Name to task</label>
+                    {{form.name}}
+                    <label>Add some descriptions</label>
+                    {{form.descr}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    $("#exampleModalCenter").on("hidden.bs.modal", function (){
+            var $form = $("#form_add_task");
+            console.log($form.serialize())
+            $.post(
+                    $form.attr('action'),
+                    $form.serialize()
+                );
+            $("#main").load( "/page/tasks" );
+            console.log('loaded')
+            return false;
+        })
+</script>

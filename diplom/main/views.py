@@ -16,13 +16,14 @@ from django.contrib.auth.models import Group
 from django.views import View
 
 # our forms
-from .forms import Register
+from .forms import Register, CasesAdd, ClientAdd, TaskAdd, FunnelAdd
 
 # our models
-
+from .models import Cases, Clients, Tasks, Funnels
 # other libs
 from pprint import pprint
 import json
+from datetime import datetime
 
 
 # --------------------------------AUTH--------------------------------
@@ -81,6 +82,7 @@ class Workplace(View):
     context = {}
 
     def get(self, request):
+        from django.contrib.auth import get_user_model
         self.context['username'] = request.user.username
         return render(request, 'workplace.html', context=self.context)
 
@@ -97,8 +99,11 @@ class DragAndDrop(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class HomePage(View):
+    context = {}
+
     def get(self, request):
-        return render(request, 'pages/home.html')
+        self.context['form'] = FunnelAdd()
+        return render(request, 'pages/home.html', context=self.context)
 
 
 # --------------------------------OTHER_PAGE--------------------------------
@@ -108,7 +113,7 @@ class CasesPage(View):
     context = {}
 
     def get(self, request):
-        self.context['form'] = []
+        self.context['form'] = CasesAdd()
         return render(request, 'pages/cases.html', context=self.context)
 
 
@@ -117,7 +122,7 @@ class TasksPage(View):
     context = {}
 
     def get(self, request):
-        self.context['form'] = []
+        self.context['form'] = TaskAdd()
         return render(request, 'pages/tasks.html', context=self.context)
 
 
@@ -126,7 +131,7 @@ class ClienstsPage(View):
     context = {}
 
     def get(self, request):
-        self.context['form'] = []
+        self.context['form'] = ClientAdd()
         return render(request, 'pages/clients.html', context=self.context)
 
 
@@ -136,21 +141,32 @@ class ClienstsPage(View):
 class Add_Elem(View):
     content = {}
 
-    def post(self, request):
-        print(json.loads(request.body))
-        # print(request.body)
-        return HttpResponseRedirect('/index')
-
-    def get(self, request, page):
-        if page == 'deals':
-            self.content['form'] = []
-            return render(request, 'add/deal.html')
-        elif page == 'tasks':
-            self.content['form'] = []
-            return render(request, 'add/task.html')
-        elif page == 'clients':
-            self.content['form'] = []
-            return render(request, 'add/client.html')
+    def post(self, request, page):
+        if page == 'case':
+            form = CasesAdd(request.POST)
+            if form.is_valid():
+                print(form.cleaned_data)
+        elif page == 'task':
+            form = CasesAdd(request.POST)
+            if form.is_valid():
+                print(form.cleaned_data)
+        elif page == 'client':
+            form = ClientAdd(request.POST)
+            if form.is_valid():
+                print(form.cleaned_data)
+                funnel = Funnels.objects.all()[0]
+                new_client = Clients(**form.cleaned_data, funnel=funnel,
+                                     create_time=datetime.now(),
+                                     change_time=datetime.now())
+                new_client.save()
+        elif page == 'funnel':
+            form = FunnelAdd(request.POST)
+            if form.is_valid():
+                print(form.cleaned_data)
+                funnel = Funnels.objects.all()[0]
+                new_funnel = Funnels(**form.cleaned_data)
+                new_funnel.save()
+        return HttpResponseRedirect('/workplace')
 
 
 # --------------------------------ANAL_SETTINGS-----------------------------
