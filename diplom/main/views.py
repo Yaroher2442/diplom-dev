@@ -95,8 +95,15 @@ class Workplace(View):
 @method_decorator(csrf_exempt, name='dispatch')
 class DragAndDrop(View):
     def post(self, request):
-        print(json.loads(request.body))
-        # print(request.body)
+        js_data = json.loads(request.body)
+        for case in Cases.objects.filter(funnel=Funnels.objects.get(id=str(js_data['container'].split('-')[1]))):
+            if case.f_position >= js_data['index']:
+                case.f_position += 1
+                case.save()
+        case = Cases.objects.get(id=int(js_data['elem'].split('-')[1]))
+        case.funnel = Funnels.objects.get(id=str(js_data['container'].split('-')[1]))
+        case.f_position = js_data['index']
+        case.save()
         return HttpResponseRedirect('/workplace')
 
 
@@ -111,7 +118,7 @@ class HomePage(View):
             if funn.name not in funs_cases.keys():
                 funs_cases[funn] = Cases.objects.filter(funnel=funn.id).order_by('f_position')
         print(funs_cases)
-        self.context['drop_js_string']=','.join([".droppable-area"+str(i.id) for i in funs_cases.keys()])
+        self.context['drop_js_string'] = ','.join([".droppable-area" + str(i.id) for i in funs_cases.keys()])
         self.context['data'] = funs_cases
         return render(request, 'pages/home.html', context=self.context)
 
@@ -159,25 +166,23 @@ class Add_Elem(View):
                 for funn in Cases.objects.filter(funnel=Funnels.objects.get(id=1)):
                     funn.f_position += 1
                     funn.save()
-                print('qqqq')
                 new_case = Cases(f_position=0,
                                  funnel_id=Funnels.objects.get(id=1).id,
                                  name=form.cleaned_data['name'],
                                  descr=form.cleaned_data['descr'],
-                                 client=Clients.objects.get(id=int(form.cleaned_data['client'])),
-                                 executor=get_user_model().objects.get(id=int(form.cleaned_data['executor'])),
+                                 client=form.cleaned_data['client'],
+                                 executor=form.cleaned_data['executor'],
                                  stage=Funnels.objects.get(id=1).name,
                                  owner=request.user.username,
                                  create_time=timezone.now(),
                                  change_time=timezone.now())
-                print(Cases.__dict__)
                 new_case.save()
         elif page == 'task':
             form = TaskAdd(request.POST)
             if form.is_valid():
                 print(form.cleaned_data)
                 new_task = Tasks(name=form.cleaned_data['name'],
-                                 case=Cases.objects.get(id=int(form.cleaned_data['case'])),
+                                 case=form.cleaned_data['case'],
                                  descr=form.cleaned_data['descr'],
                                  create_time=timezone.now(),
                                  change_time=timezone.now(),

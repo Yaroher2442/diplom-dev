@@ -22,18 +22,19 @@
 
 <div class="d-flex flex-row" style="height: 100%;">
     {% for key, values in data.items %}
-    <div id="container-1" class="container border overflow-auto">
+    <div id="container-{{key.id}}" class="container border overflow-auto">
         <div class="text-center p-2 ">{{key.name}}</div>
-        <div id="dv1-1" class="connected-sortable droppable-area{{key.id}}" style="min-height: 100%;">
+        <div class="connected-sortable droppable-area{{key.id}}" style="min-height: 100%;">
             {% for val in values %}
-            <div id="dv2-1" class="d-flex flex-column draggable-item">
-                <div id="dv3-1" class="list-group">
-                    <a id="a1-1" href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div id="dv4-1" class="d-flex w-100 justify-content-between">
-                            <h6 id="h1-1" class="mb-1">List group item heading</h6>
-                            <small id="s1-1">3 days ago</small>
+            <div id="dv2-{{val.id}}" class="d-flex flex-column draggable-item">
+                <div id="dv3-{{val.id}}" class="list-group">
+                    <a id="a1-{{val.id}}" href="#" class="list-group-item list-group-item-action" aria-current="true">
+                        <div id="dv4-{{val.id}}" class="d-flex w-100 justify-content-between">
+                            <h6 id="h1-{{val.id}}" class="mb-1">{{val.name}}</h6>
+                            <small id="s1-{{val.id}}">{{val.change_time}}</small>
                         </div>
-                        <p id="p1-1" class="mb-1">Some placeholder content in a paragraph.</p>
+                        <h7 id="h2-{{val.id}}" class="mb-1">Owner: {{val.executor}}</h7>
+                        <p id="p1-{{val.id}}" class="mb-1">{{val.descr}}</p>
                     </a>
                 </div>
             </div>
@@ -71,20 +72,20 @@
     </div>
 </div>
 
+
 <script>
 $("#exampleModalCenter").on("hidden.bs.modal", function (){
-            var $form = $("#form_add_funel");
-            console.log($form.serialize())
-            $.post(
-                    $form.attr('action'),
-                    $form.serialize()
-                );
+        var $form = $("#form_add_funel");
+        console.log($form.serialize())
+        $.post(
+            $form.attr('action'),
+            $form.serialize()
+            );
+        setTimeout(function (){
+            console.log('loaded!')
             $("#main").load( "/page/home" );
-            console.log('loaded')
-            return false;
-        })
-
-        $( init );
+            }, 1000);
+    })
 
 
 $( init );
@@ -93,15 +94,16 @@ function init() {
       connectWith: ".connected-sortable",
       scroll: true,
       stop : function(event, ui) {
+        console.log(ui.item.index())
         var new_elem=document.elementFromPoint(event.originalEvent.clientX,event.originalEvent.clientY);
             $("div").each(function(i,elem){
             if ($(this).hasClass("overflow-auto")){
                  if ($.contains(elem,new_elem)){
-                     console.log(new_elem);
                      console.log(new_elem.id);
                      item = {}
                      item ["container"] = elem.id;
                      item ["elem"] = new_elem.id;
+                     item ["index"] = ui.item.index();
                      $.ajax({
                         type: "POST",
                         url: "/DragDrop",
@@ -114,6 +116,7 @@ function init() {
       },
     }).disableSelection();
 }
+
 
 
 </script>

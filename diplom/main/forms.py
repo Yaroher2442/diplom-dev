@@ -1,6 +1,17 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.forms import ModelChoiceField
 from .models import Clients, Cases
+
+
+class MyModelChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return obj.name
+
+
+class MyModelChoiceField_2(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return obj.username
 
 
 class Register(forms.Form):
@@ -18,14 +29,14 @@ class CasesAdd(forms.Form):
     # client = models.ForeignKey(Clients, on_delete=models.DO_NOTHING)
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
                            required=True)
-    client = forms.ChoiceField(
-        widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_owner'}),
-        choices=OPTIONS_CLIENTS)
+    client = MyModelChoiceField(queryset=Clients.objects.all(),
+                                widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_client'}),
+                                to_field_name="id", label="name", empty_label=None)
     descr = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
                             required=True)
-    executor = forms.ChoiceField(
-        widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_owner'}),
-        choices=OPTIONS_OWNRES)
+    executor = MyModelChoiceField_2(queryset=get_user_model().objects.all(),
+                                    widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_client'}),
+                                    to_field_name="id", label="name", empty_label=None)
 
 
 class ClientAdd(forms.Form):
@@ -38,16 +49,15 @@ class ClientAdd(forms.Form):
 
 
 class TaskAdd(forms.Form):
-    CASE_OPTIONS = tuple([(item.id, item.name) for item in Cases.objects.all()])
-    case = forms.ChoiceField(
-        widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_owner'}),
-        choices=CASE_OPTIONS)
+    case = MyModelChoiceField(queryset=Cases.objects.all(),
+                              widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_owner'}),
+                              to_field_name="id", label="name", empty_label=None)
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
                            required=True)
     descr = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
                             required=True)
     status = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Status'}),
-                            required=True)
+                             required=True)
 
 
 class FunnelAdd(forms.Form):
