@@ -104,6 +104,38 @@
     </div>
 </div>
 
+
+<!--Modal change-->
+<div class="modal fade" id="ModalChance" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalChanceLongTitle">ADD CASE FORM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="form_add_case" method="POST" class="needs-validation" action="/add/case">
+                <div class="modal-body">
+                    <label>Name to case</label>
+                    {{form.name}}
+                    <label>Chose cell client</label>
+                    {{form.client}}
+                    <label>Chose exeсutor</label>
+                    {{form.executor}}
+                    <label>Add some words about</label>
+                    {{form.descr}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     $("#exampleModalCenter").on("hidden.bs.modal", function (){
             var $form = $("#form_add_case");
@@ -116,7 +148,4 @@
             console.log('loaded')
             return false;
         })
-
-
-
 </script>
