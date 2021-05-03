@@ -46,6 +46,13 @@ class ClientAdd(forms.Form):
 
 
 class TaskAdd(forms.Form):
+    OPTIONS = (
+        ("Created", "Created"),
+        ("Wait", "Wait"),
+        ("Canceled", "Canceled"),
+        ("Done", "Done"),
+        ("Stop", "Stop")
+    )
     case = MyModelChoiceField(queryset=Cases.objects.all(),
                               widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_owner'}),
                               to_field_name="id", label="name", empty_label=None)
@@ -53,8 +60,8 @@ class TaskAdd(forms.Form):
                            required=True)
     descr = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
                             required=True)
-    status = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Status'}),
-                             required=True)
+    status = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
+                               choices=OPTIONS)
 
 
 class FunnelAdd(forms.Form):

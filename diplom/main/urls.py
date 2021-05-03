@@ -15,5 +15,7 @@ urlpatterns = [
     path('page/clients', ClienstsPage.as_view()),
     path('page/analytics', AnalyticsPage.as_view()),
     path('page/settings', SettingsPage.as_view()),
-    path('add/<str:page>', Add_Elem.as_view())
+    path('add/<str:page>', Add_Elem.as_view()),
+    path('change/<str:page>/<int:el_id>', Change_Elem.as_view()),
+    path('delite/<str:page>/<int:el_id>', Delite_Elem.as_view())
 ]

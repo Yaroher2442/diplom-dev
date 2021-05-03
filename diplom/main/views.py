@@ -138,6 +138,8 @@ class CasesPage(View):
 @method_decorator(csrf_exempt, name='dispatch')
 class TasksPage(View):
     context = {}
+    True_colour_dict = {'Done': "green", 'Wait': 'yellow', 'Created': 'blue'}
+    False_colour_dict = {'Stop': 'purlpe', 'Canceled': 'black'}
 
     def get(self, request):
         self.context['form'] = TaskAdd()
@@ -209,6 +211,33 @@ class Add_Elem(View):
                 new_funnel.save()
                 # new_funnel.save()
         return HttpResponseRedirect('/workplace')
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Change_Elem(View):
+    content = {}
+
+    def post(self, request, page, el_id):
+        if page == 'case':
+            case = Cases.objects.get(id=el_id)
+            case.name = request.POST.get('name')
+            case.descr = request.POST.get('descr')
+            case.save()
+        elif page == 'task':
+            client = Tasks.objects.get(id=el_id)
+            client.status = request.POST.get('status')
+            client.descr = request.POST.get('descr')
+            client.save()
+        elif page == 'client':
+            client = Clients.objects.get(id=el_id)
+            client.descr = request.POST.get('descr')
+            client.save()
+        return HttpResponseRedirect('/workplace')
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Delite_Elem(View):
+    pass
 
 
 # --------------------------------ANAL_SETTINGS-----------------------------
