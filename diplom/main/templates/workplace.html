@@ -23,13 +23,17 @@
     <div style="height: 100%;">
         {% include "./helpers/menu.html" %}
     </div>
-    <div id="main" class="d-flex flex-column w-100 ">
-        {% include "./pages/home.html" %}
+    <div class="d-flex flex-column w-100 ">
+        {% include "./helpers/search.html" %}
+        <div id="main" class="d-flex flex-column w-100 ">
+            {% include "./pages/home.html" %}
+        </div>
     </div>
 </div>
 
 {% load static %}
 <script src="{% static 'pager.js' %}" type="text/javascript"></script>
+
 
 </body>
 </html>

@@ -1,0 +1,37 @@
+<div id="bar" class="d-flex flex-row align-items-center justify-content-center bg-light border-bottom w-100"
+     style="max-height: 90px;" xmlns="http://www.w3.org/1999/html">
+    <div>
+        <button type="button" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                 class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+        </button>
+    </div>
+    <div>
+        <div id="search" class="d-flex search">
+            <input id="search_input" class="form-control" type="search" placeholder="Type search">
+            <button id="search_btn" class="btn btn-secondary" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-search"
+                     viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="flex-grow-1 text-center"></div>
+    {% for message in messages %}
+    <div class="flex-grow-1 {{ message.tags }} text-center" style="text-align: center"> {{ message }}</div>
+    {% endfor %}
+    <div>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                 class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+            </svg>
+        </button>
+    </div>
+</div>
