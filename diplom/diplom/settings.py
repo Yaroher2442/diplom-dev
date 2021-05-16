@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-!6=k_s5!2w(5u+_uf%ss-3&dkx4d3y7)*&m=@geasb%@f@q3x+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.1.207"]
 
 # Application definition
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'main'
 ]
 
@@ -68,14 +69,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'diplom.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases#
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -117,3 +118,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
+
+
+

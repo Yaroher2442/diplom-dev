@@ -26,7 +26,7 @@ class Register(forms.Form):
 class CasesAdd(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
                            required=True)
-    client = MyModelChoiceField(queryset=Clients.objects.all(),
+    client = MyModelChoiceField(queryset=Clients.objects.filter(funnel=1),
                                 widget=forms.Select(attrs={'class': 'form-control', 'id': 'selector_client'}),
                                 to_field_name="id", label="name", empty_label=None)
     descr = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
