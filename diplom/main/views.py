@@ -27,7 +27,6 @@ from pprint import pprint
 import json
 from datetime import datetime
 from django.utils import timezone
-from fuzzywuzzy import process
 
 
 # --------------------------------AUTH--------------------------------
@@ -148,6 +147,7 @@ class TasksPage(View):
         self.context['form'] = TaskAdd()
         self.context['data'] = []
         for item in Tasks.objects.all():
+            print(item.__dict__)
             if item.status in self.True_colour_dict.keys():
                 self.context['data'].append({'item': item, 'colour': self.True_colour_dict[item.status], 'flag': True})
             else:
@@ -155,44 +155,44 @@ class TasksPage(View):
                     {'item': item, 'colour': self.False_colour_dict[item.status], 'flag': False})
         return render(request, 'pages/tasks.html', context=self.context)
 
-    def post(self, request):
-        income = str(request.body).replace("'", '').split('=')[1]
-        self.context['form'] = TaskAdd()
-        self.context['data'] = []
-
-        search_data_names = [item.name for item in Tasks.objects.all()]
-        search_data_descr = [item.name for item in Tasks.objects.all()]
-        rez_name = process.extract(income, search_data_names)
-        rez_desr = process.extract(income, search_data_descr)
-        if max([i[1] for i in rez_name + rez_desr]) < 50:
-            print('qqqq')
-            for item in Tasks.objects.all():
-                if item.status in self.True_colour_dict.keys():
-                    self.context['data'].append(
-                        {'item': item, 'colour': self.True_colour_dict[item.status], 'flag': True})
-                else:
-                    self.context['data'].append(
-                        {'item': item, 'colour': self.False_colour_dict[item.status], 'flag': False})
-            return render(request, 'pages/tasks.html', context=self.context)
-        else:
-            new_data = []
-            for r in rez_name + rez_desr:
-                try:
-                    new_data.append(Tasks.objects.get(name=r[0]))
-                except:
-                    new_data.append(Tasks.objects.get(descr=r[0]))
-                else:
-                    continue
-            new_data = list(set(new_data))
-            pprint(new_data)
-            for item in new_data:
-                if item.status in self.True_colour_dict.keys():
-                    self.context['data'].append(
-                        {'item': item, 'colour': self.True_colour_dict[item.status], 'flag': True})
-                else:
-                    self.context['data'].append(
-                        {'item': item, 'colour': self.False_colour_dict[item.status], 'flag': False})
-            return render(request, 'pages/tasks.html', context=self.context)
+    # def post(self, request):
+    #     income = str(request.body).replace("'", '').split('=')[1]
+    #     self.context['form'] = TaskAdd()
+    #     self.context['data'] = []
+    #
+    #     search_data_names = [item.name for item in Tasks.objects.all()]
+    #     search_data_descr = [item.name for item in Tasks.objects.all()]
+    #     rez_name = process.extract(income, search_data_names)
+    #     rez_desr = process.extract(income, search_data_descr)
+    #     if max([i[1] for i in rez_name + rez_desr]) < 50:
+    #         print('qqqq')
+    #         for item in Tasks.objects.all():
+    #             if item.status in self.True_colour_dict.keys():
+    #                 self.context['data'].append(
+    #                     {'item': item, 'colour': self.True_colour_dict[item.status], 'flag': True})
+    #             else:
+    #                 self.context['data'].append(
+    #                     {'item': item, 'colour': self.False_colour_dict[item.status], 'flag': False})
+    #         return render(request, 'pages/tasks.html', context=self.context)
+    #     else:
+    #         new_data = []
+    #         for r in rez_name + rez_desr:
+    #             try:
+    #                 new_data.append(Tasks.objects.get(name=r[0]))
+    #             except:
+    #                 new_data.append(Tasks.objects.get(descr=r[0]))
+    #             else:
+    #                 continue
+    #         new_data = list(set(new_data))
+    #         pprint(new_data)
+    #         for item in new_data:
+    #             if item.status in self.True_colour_dict.keys():
+    #                 self.context['data'].append(
+    #                     {'item': item, 'colour': self.True_colour_dict[item.status], 'flag': True})
+    #             else:
+    #                 self.context['data'].append(
+    #                     {'item': item, 'colour': self.False_colour_dict[item.status], 'flag': False})
+    #         return render(request, 'pages/tasks.html', context=self.context)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
