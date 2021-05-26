@@ -1,0 +1,774 @@
+{
+  "gameTitle": "ЛИЧНЫЙ ЗАЧЁТ",
+  "hintsPerDum": 1,
+  "oneForAllPerDum": 3,
+  "turboPerDum": 3,
+  "dums": [
+    {
+      "name": "тест",
+      "test": true,
+      "rounds": [
+        {
+          "description": "обычная игра",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "Как расшифровывается аббревиатура «МАИ» ?",
+          "options": [
+            "Правильного ответа нет",
+            "Московский автомобильный институт",
+            "Московский аэродинамический институт",
+            "Московский авиационный институт",
+            "Московский анатомический институт"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "logo.png"
+          },
+          "media2": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "logo.png"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Первый раунд Финал",
+      "test": false,
+      "rounds": [
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "СКОЛЬКО РАЗ ВСТРЕЧАЕТСЯ ЦИФРА ‘9’ ПРИ СЧЕТЕ ОТ ‘10 до 100’ ?",
+          "options": [
+            "Правильного ответа нет",
+            "9",
+            "10",
+            "11",
+            "18"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "1.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЕ НАПИСАНИЕ ПРАВИЛЬНОЕ ?",
+          "options": [
+            "Правильного ответа нет",
+            "ВИНЕГРЕТ",
+            "ВИНИГРЕТ",
+            "ВЕНИГРЕТ",
+            "ВЕНЕГРЕТ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 1,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "2.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЙ ХУДОЖНИК ИЗОБРАЗИЛ МОМЕНТ НАПИСАНИЯ ПИСЬМА ЗАПОРОЖЦЕВ ТУРЕЦКОМУ СУЛТАНУ ?",
+          "options": [
+            "Правильного ответа нет",
+            "ВАСИЛИЙ СУРИКОВ",
+            "ИЛЬЯ РЕПИН ",
+            "ВИКТОР ВАСНЕЦОВ",
+            "ВАЛЕНТИН СЕРОВ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 2,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "3.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКАЯ СТРАНА НЕ ВХОДИТ В ЧЕТВЕРКУ ЛИДЕРОВ ПО СБОРУ МАНДАРИНОВ ?",
+          "options": [
+            "Правильного ответа нет",
+            "ИСПАНИЯ",
+            "КИТАЙ",
+            "БРАЗИЛИЯ",
+            "МАРОККО"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "4.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "ЧТО В ПЕРЕВОДЕ С ИТАЛЬЯНСКОГО ОЗНАЧАЕТ СЛОВО ‘ВЕРМИШЕЛЬ’ ?",
+          "options": [
+            "Правильного ответа нет",
+            "НИТОЧКИ",
+            "ЗМЕЙКИ",
+            "ПАЛОЧКИ",
+            "ЧЕРВЯЧКИ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "5.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЙ ВКУС НЕ ЧУВСТВУЮТ КОШКИ ? ",
+          "options": [
+            "Правильного ответа нет",
+            "ГОРЬКИЙ",
+            "СОЛЕНЫЙ",
+            "СЛАДКИЙ",
+            "КИСЛЫЙ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "6.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАК НАПИСАТЬ ПРАВИЛЬНО ?",
+          "options": [
+            "Правильного ответа нет",
+            "ПОДЧИВАЛ ЯВСТВАМИ",
+            "ПОТЧЕВАЛ ЯВСТВАМИ",
+            "ПОТЧЕВАЛ ЯСТВАМИ",
+            "ПОТЧИВАЛ ЯСТВАМИ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "7.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "ЧТО УКРАШАЕТ ШЕЮ ДЖОКОНДЫ НА ПОЛОТНЕ ЛЕОНАРДО ?",
+          "options": [
+            "Правильного ответа нет",
+            "КРЕСТИК",
+            "КУЛОН",
+            "БУСЫ",
+            "НИЧЕГО"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "8.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "НА БЕРЕГУ КАКОГО МОРЯ СТОИТ ПОРТ ВЛАДИВОСТОК ?",
+          "options": [
+            "Правильного ответа нет",
+            "ТИХОЕ МОРЕ",
+            "РУССКОЕ МОРЕ",
+            "ОХОТСКОЕ МОРЕ",
+            "ЯПОНСКОЕ МОРЕ "
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "9.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКАЯ ПТИЦА КОРМИТ ПТЕНЦОВ Т.Н. «ПТИЧЬИМ МОЛОКОМ» ?",
+          "options": [
+            "Правильного ответа нет",
+            "КУРИЦА",
+            "ОРЕЛ",
+            "ЦАПЛЯ",
+            "ГОЛУБЬ "
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "10.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "НА КАКОЙ ТОВАР БЫЛ ПОСТАВЛЕН ПЕРВЫЙ В МИРЕ ШТРИХ-КОД ?",
+          "options": [
+            "Правильного ответа нет",
+            "ЛЕКАРСТВО",
+            "ШОКОЛАД",
+            "СИГАРЕТЫ",
+            "ЖВАЧКА"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "11.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "О ЧЕМ ГОВОРИЛ МАРК ТВЕН: «ЕСЛИ ВЫ О НЕМ НЕ ДУМАЕТЕ, ЕГО НЕ СУЩЕСТВУЕТ» ?",
+          "options": [
+            "Правильного ответа нет",
+            "КРЕДИТ",
+            "БОГ",
+            "ВОЗРАСТ",
+            "ДРУГ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "12.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "УКАЖИТЕ ПРАВИЛЬНУЮ ОЧЕРЕДНОСТЬ БУКВ РУССКОГО АЛФАВИТА ?",
+          "options": [
+            "Правильного ответа нет",
+            "ЪЫЬ",
+            "ЬЫЪ",
+            "ЪЬЫ",
+            "ЬЪЫ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 1,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "13.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "У ИНДЕЙЦЕВ ИЗ СЕВЕРОАМЕРИКАНСКОГО ПЛЕМЕНИ КВАКИУТЛ ЕСТЬ ТРАДИЦИЯ: ЗАНИМАЯ ДЕНЬГИ В ДОЛГ, ОНИ ОСТАВЛЯЮТ В ЗАЛОГ…",
+          "options": [
+            "Правильного ответа нет",
+            "ДУШУ",
+            "ИМЯ",
+            "ТЕЩУ",
+            "ТЕЩУ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 2,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "14.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "ТУРИСТЫ, ПРИЕЗЖАЮЩИЕ НА МАЙОРКУ, ОБЯЗАНЫ ЗАПЛАТИТЬ НАЛОГ…",
+          "options": [
+            "Правильного ответа нет",
+            "НА ПЕСОК",
+            "НА ПАЛЬМЫ",
+            "НА СОЛНЦЕ",
+            "НА МОРЕ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "15.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "У САЛЬВАОРА ДАЛИ ЕСТЬ КАРТИНА «ЛЕБЕДИ, ОТРАЖАЮЩИЕСЯ В …»",
+          "options": [
+            "Правильного ответа нет",
+            "ГОРАХ",
+            "СЛОНАХ",
+            "НЕБЕСАХ",
+            "ТЕЩУ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 2,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "16.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "ПЕРВЫМИ ПОЛЕТ НА ВОЗДУШНОМ ШАРЕ СОВЕРШИЛИ...",
+          "options": [
+            "Правильного ответа нет",
+            "ПЕРВЫМИ ПОЛЕТ НА ВОЗДУШНОМ ШАРЕ СОВЕРШИЛИ",
+            "ОВЦА, ПЕТУХ И ГУСЬ",
+            "ЖЮЛЬ ВЕРН",
+            "КОТ И СОБАКА"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 2,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "17.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЙ ГОРОД ЕСТЬ НА КАЖДОМ КОНТИНЕНТЕ ЗЕМЛИ, КРОМЕ АНТАРКТИДЫ ?",
+          "options": [
+            "Правильного ответа нет",
+            "САНКТ-ПЕТЕРБУРГ",
+            "РИМ",
+            "МОСКВА",
+            "АФИНЫ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 2,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "18.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЕ НАПИСАНИЕ ПРАВИЛЬНОЕ ?",
+          "options": [
+            "Правильного ответа нет",
+            "ТЕРАССА",
+            "ТЕРРАСА",
+            "ТЕРРАССА",
+            "ТЕРАСА"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 2,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "19.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЕ ЧИСЛО РАВНО МИЛЛИОНУ МИЛЛИОНОВ ?",
+          "options": [
+            "Правильного ответа нет",
+            "КВАДРИЛЬОН",
+            "КВИНТИЛЬОН",
+            "МИЛЛИАРД",
+            "ТРИЛЛИОН"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "20.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАК С ЛАТЫНИ ПЕРЕВОДИТСЯ СЛОВО «КУЛЬТУРА»?",
+          "options": [
+            "Правильного ответа нет",
+            "ВОЗВЕЛИЧИВАТЬ",
+            "ТВОРИТЬ",
+            "ЛЮБОВАПТЬСЯ",
+            "ВОЗДЕЛЫВАТЬ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "21.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "ЧЕЛОВЕЧЕСКИЙ МОЗГ НА 60 % СОСТОИТ ИЗ…",
+          "options": [
+            "Правильного ответа нет",
+            "ЖИРА ",
+            "УГЛЕВОДОВ",
+            "БЕЛКОВ",
+            "ВОДЫ"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 1,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "22.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "Сколько студентов учится сейчас на кафедре?",
+          "options": [
+            "Правильного ответа нет",
+            "150",
+            "200",
+            "250",
+            "300"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "23.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАК ПИЛОТЫ СООБЩАЮТ О БЕДСТВИИ ?",
+          "options": [
+            "Правильного ответа нет",
+            "MAYDAY",
+            "MYWAY",
+            "SOS",
+            "HELP"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 1,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "24.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "Сколько преподавателей работает на кафедре ?",
+          "options": [
+            "Правильного ответа нет",
+            "15",
+            "20",
+            "25",
+            "30"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "25.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "КАКОЕ РАССТОЯНИЕ ПРЕОДОЛЕЛИ БРАТЬЯ РАЙТ ВО ВРЕМЯ СВОЕГО ПЕРВОГО ПОЛЕТА ?",
+          "options": [
+            "Правильного ответа нет",
+            "1197 M",
+            "152 М",
+            "74 М",
+            "36 М"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 4,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "26.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "Сколько студентов оформлены в НИР кафедры ? ",
+          "options": [
+            "Правильного ответа нет",
+            "5",
+            "10",
+            "15",
+            "20"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "27.jpg",
+            "description": "после"
+          }
+        },
+        {
+          "description": "VOPROS",
+          "type": "question",
+          "intro": "Подсказка что говорить для ведущего.",
+          "question": "Сколько промышленных партнеров проводят занятия для студентов ?",
+          "options": [
+            "Правильного ответа нет",
+            "2",
+            "5",
+            "10",
+            "15"
+          ],
+          "clarification": "Подсказка для ведущего по ответу на вопрос.",
+          "correctOption": 3,
+          "time": 45,
+          "media": {
+            "type": "image",
+            "src": "logo.png",
+            "description": "до"
+          },
+          "media2": {
+            "type": "image",
+            "src": "28.jpg",
+            "description": "после"
+          }
+        }
+      ]
+    }
+  ]
+}
